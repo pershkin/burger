@@ -1,0 +1,240 @@
+/* Базовые стили */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #F6C390;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 60px;
+  height: 100%;
+  background-color: #533557;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+#toggle {
+  display: none;
+}
+
+.toggle-container {
+  position: absolute;
+  display: block;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.button-toggle {
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.button-toggle:hover {
+  box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#toggle:checked ~ .toggle-container .button-toggle {
+  box-shadow: 0 0 0 800px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1), 0 0 0 8px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#toggle:checked ~ .toggle-container .button-toggle:before {
+  transform: rotate(45deg)  scale(1);
+  
+}
+
+#toggle:checked ~ .toggle-container .button-toggle:after {
+  transform: rotate(-45deg)  scale(1);
+}
+
+.toggle-container .button-toggle:before,
+.toggle-container .button-toggle:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  height: 2px;
+  top: 47%;
+  left: 0;
+  border-radius: 5px;
+  transition: 0.5s;
+  transform: translateY(-50%);
+  
+}
+
+.toggle-container .button-toggle:before {
+  transform: rotate(45deg)  scale(0);
+  
+}
+
+.toggle-container .button-toggle:after {
+  transform: rotate(-45deg)  scale(0);
+}
+
+
+.nav {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  padding-top: 5px;
+
+  width: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+
+#toggle:checked ~ .nav {
+  transform: translate(20px, 30px);
+  width: 100%;
+  pointer-events: auto;
+  padding: 0;
+  
+}
+
+
+.nav .nav-item {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 7px;
+  letter-spacing: -8.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: scaleY(0.1);
+  transition: 0.5s, transform 0.5s;
+  color: transparent;
+}
+
+#toggle:checked ~ .nav .nav-item {
+  color: #000;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  
+  margin: 0;
+  transform: scaleY(1);
+  opacity: 1;
+  transition: 0.5s, transform 0.5s;
+  
+}
+
+
+#toggle:checked ~ .nav .nav-item:before {
+  opacity: 0;
+}
+
+.nav .nav-item:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  opacity: 1;
+  transform: translateY(-50%) scaleY(5);
+  transition: 0.5s;
+}
+
+.nav .nav-item:nth-child(1) {
+  letter-spacing: -8.5px;
+}
+.nav .nav-item:nth-child(2) {
+  letter-spacing: -9.5px;
+}
+.nav .nav-item:nth-child(n + 4) {
+  letter-spacing: -8px;
+  margin-top: -7px;
+  opacity: 0;
+}
+
+
+.info {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  align-items: center;
+  transition: 0.5s;
+  pointer-events: auto;
+  opacity: 1;
+  
+}
+
+.info_avatar {
+  border-radius: 50%;
+  border: 5px solid orange;
+  background-color: #fff;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_avatar img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.info_avatar img:hover {
+  transform: scale(1.3);
+  
+}
+
+.info_main {
+  width: 300px;
+  height: 100px;
+  background-color: #717272;
+}
+
+.info_carusel {
+  width: 100%;
+  height: 250px;
+  background-color: #119292;
+}
+
+
+#toggle:checked ~ .info {
+  opacity: 0.3;
+  transform: translateY(30%);
+  pointer-events: none;
+  
+}
+
