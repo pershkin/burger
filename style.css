@@ -1,18 +1,11 @@
-/* Базовые стили */
 * {
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-
-}
-
 body {
+  margin: 0;
   font-family: sans-serif;
-  background-color: #F6C390;
+  background-color: #909196;
 }
 
 a {
@@ -22,10 +15,11 @@ a {
 .container {
   position: relative;
   max-width: 1024px;
+  min-height: 100vh;
   margin: 0 auto;
   padding-top: 60px;
   height: 100%;
-  background-color: #533557;
+  background-color: #a7a1a1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,168 +67,234 @@ a {
 
 .toggle-container .button-toggle:before,
 .toggle-container .button-toggle:after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 0;
-  background-color: #000;
-  height: 2px;
-  top: 47%;
-  left: 0;
-  border-radius: 5px;
-  transition: 0.5s;
-  transform: translateY(-50%);
-  
+position: absolute;
+content: "";
+width: 100%;
+height: 0;
+background-color: #000;
+height: 2px;
+top: 47%;
+left: 0;
+border-radius: 5px;
+transition: 0.5s;
+transform: translateY(-50%);
+
 }
 
 .toggle-container .button-toggle:before {
-  transform: rotate(45deg)  scale(0);
-  
+transform: rotate(45deg)  scale(0);
+
 }
 
 .toggle-container .button-toggle:after {
-  transform: rotate(-45deg)  scale(0);
+transform: rotate(-45deg)  scale(0);
 }
 
 
 .nav {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  padding-top: 5px;
+position: absolute;
+right: 15px;
+top: 15px;
+padding-top: 5px;
 
-  width: 30px;
+width: 30px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 
-  transition: 0.5s;
-  pointer-events: none;
+transition: 0.5s;
+pointer-events: none;
 }
 
 
 #toggle:checked ~ .nav {
-  transform: translate(20px, 30px);
-  width: 100%;
-  pointer-events: auto;
-  padding: 0;
-  
+transform: translate(15px, 30px);
+width: 100%;
+pointer-events: auto;
+padding: 0;
+
 }
 
 
 .nav .nav-item {
-  display: block;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 7px;
-  letter-spacing: -8.5px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transform: scaleY(0.1);
-  transition: 0.5s, transform 0.5s;
-  color: transparent;
+display: block;
+font-weight: 700;
+font-size: 16px;
+line-height: 7px;
+letter-spacing: -8.5px;
+text-transform: uppercase;
+white-space: nowrap;
+transform: scaleY(0.1);
+transition: 0.5s, transform 0.5s;
+color: transparent;
 }
 
 #toggle:checked ~ .nav .nav-item {
-  color: #000;
-  font-size: 16px;
-  line-height: 40px;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  white-space: nowrap;
-  
-  margin: 0;
-  transform: scaleY(1);
-  opacity: 1;
-  transition: 0.5s, transform 0.5s;
-  
+color: #000;
+font-size: 16px;
+line-height: 40px;
+letter-spacing: 0;
+text-transform: uppercase;
+white-space: nowrap;
+
+margin: 0;
+transform: scaleY(1);
+opacity: 1;
+transition: 0.5s, transform 0.5s;
+
 }
 
-
 #toggle:checked ~ .nav .nav-item:before {
-  opacity: 0;
+opacity: 0;
 }
 
 .nav .nav-item:before {
-  position: absolute;
-  content: "";
-  top: 50%;
-  width: 100%;
-  height: 3px;
-  background-color: #000;
-  opacity: 1;
-  transform: translateY(-50%) scaleY(5);
-  transition: 0.5s;
+position: absolute;
+content: "";
+top: 50%;
+width: 100%;
+height: 3px;
+background-color: #000;
+opacity: 1;
+transform: translateY(-50%) scaleY(5);
+transition: 0.5s;
 }
 
 .nav .nav-item:nth-child(1) {
-  letter-spacing: -8.5px;
+letter-spacing: -7.5px;
 }
 .nav .nav-item:nth-child(2) {
-  letter-spacing: -9.5px;
+letter-spacing: -4.5px;
 }
 .nav .nav-item:nth-child(n + 4) {
-  letter-spacing: -8px;
-  margin-top: -7px;
-  opacity: 0;
+letter-spacing: -8px;
+margin-top: -7px;
+opacity: 0;
 }
 
 
 .info {
-  width: 100%;
-  height: 100%;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+flex-wrap: nowrap;
+align-items: center;
+transition: 0.5s;
+pointer-events: auto;
+opacity: 1;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-  align-items: center;
-  transition: 0.5s;
-  pointer-events: auto;
-  opacity: 1;
-  
 }
 
-.info_avatar {
-  border-radius: 50%;
-  border: 5px solid orange;
-  background-color: #fff;
-  transition: 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.info_header {
+width: 100%;
+margin-top: 15px;
+display: flex; 
+align-items: center;
+justify-content: space-around;
+transition: 0.5s;
 }
 
-.info_avatar img {
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
-  transition: 0.5s;
+.info-header-index {
+flex-direction: column;
+transition: 0.5s;
 }
 
-.info_avatar img:hover {
-  transform: scale(1.3);
-  
+.info_photo {
+border-radius: 50%;
+transition: 0.5s;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 15px;
 }
 
-.info_main {
-  width: 300px;
-  height: 100px;
-  background-color: #717272;
+.info_photo img {
+width: 125px;
+height: 125px;
+border-radius: 50%;
+box-shadow: 1px 2px 20px 0px rgba(50, 50, 50, 1);
 }
 
-.info_carusel {
-  width: 100%;
-  height: 250px;
-  background-color: #119292;
+.info_general {
+
+text-align: center;
 }
+
+
 
 
 #toggle:checked ~ .info {
-  opacity: 0.3;
-  transform: translateY(30%);
-  pointer-events: none;
-  
+opacity: 0.3;
+transform: translateY(40%);
+pointer-events: none;
+
 }
 
+
+.info_general h3 {
+padding: 0;
+margin: 0;
+font-size: 18px;
+}
+
+.info_general h3 span {
+text-transform: uppercase;
+}
+
+.info_general h1 {
+padding: 0;
+margin: 0;
+font-size: 18px;
+font-weight: normal;
+margin: 5px 0;
+}
+
+.info_main {
+margin-top: 20px;
+width: 100%;
+height: 100%;
+}
+
+.info_main_page {
+padding: 10px;
+width: 100%;
+height: 100%;
+opacity: 0;
+transition: 0.5s;
+}
+
+.page-active {
+opacity: 1;
+}
+
+.info_main_page .info_personal {
+max-width: 400px;
+margin: 0 auto;
+}
+
+.info_main_page .info_personal tr {
+height: 30px;
+
+}
+
+.info_main_page .info_personal td {
+width: 50%;
+vertical-align: middle;
+}
+
+.info_main_page .info_personal .right {
+text-align: right;
+}
+
+.info_main_page .title {
+padding: 0;
+margin: 10px 0;
+}
+
+.info_main_page p {
+margin: 0;
+text-align: justify;
+}
